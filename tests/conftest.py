@@ -181,7 +181,7 @@ def generate_calc_job_node(fixture_localhost):
         """Flatten inputs recursively like :meth:`aiida.engine.processes.process::Process._flatten_inputs`."""
         flat_inputs = []
         for key, value in inputs.items():
-            if isinstance(value, collections.Mapping):
+            if isinstance(value, collections.abc.Mapping):
                 flat_inputs.extend(flatten_inputs(value, prefix=prefix + key + '__'))
             else:
                 flat_inputs.append((prefix + key, value))
